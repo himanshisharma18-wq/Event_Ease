@@ -1,91 +1,246 @@
-# EventEase
+EventEase
 
-EventEase is an editorial-style event discovery and planning workspace. The project uses native HTML, CSS and browser ES modules with a single Node/Express server. It can be previewed without provider credentials: the public discovery feed is composed of clearly labeled curated sample ideas, and the planner uses a deterministic local guide when Gemini is not configured. Accounts and durable saved data require MongoDB Atlas; they are deliberately not simulated.
+Every occasion, beautifully planned. EventEase brings event discovery and celebration planning together in one responsive web app.
 
-## Requirements
+Live website
 
-Use Node.js 22.12 or later from the supported Node.js 22 LTS line, and npm 10 or later. A MongoDB Atlas connection string is needed for persistent user accounts, saved plans, saved events, guests, expenses and tasks. A Google Gemini API key is optional and is used only by the backend. Event-provider and vendor-search keys are optional.
+Open EventEase: 
 
-## Run locally
+https://event-ease-gdk3.onrender.com
 
-```sh
-cp .env.example .env
+The live site is hosted on Render. Its home page and health endpoint were reachable when this README was prepared. The health endpoint is 
+
+https://event-ease-gdk3.onrender.com/api/health.
+
+What you can do
+
+•
+Explore events: search and filter by location, category, format, date range and price. Curated sample events are planning inspiration, not verified live listings. Configured external-provider results are labeled separately.
+
+•
+Plan an event: use the multi-step planner to create an editable draft. With a working Gemini key, the server requests an AI-generated plan; if Gemini is not configured, over quota or unavailable, EventEase clearly uses its local planning guide instead. Budget figures are estimates, not vendor quotes.
+
+•
+Browse festivals: view seasonal guidance and available public-holiday dates. Some observances vary by location or lunar calendar, so dates that are not verified are not presented as confirmed.
+
+•
+Manage a plan: signed-in users can save plans and manage guests, expenses, tasks, venue options and bookmarks.
+
+•
+Compare venues: add and compare venue options manually. PredictHQ is an event and geographic-place data source, not a searchable venue-business directory; automatic venue listings require a separate compatible provider.
+
+•
+Use community listings: signed-in members can submit future event listings when MongoDB and the session secret are configured.
+
+An external provider may not supply an official event-page URL for every record. EventEase should only link out when a real external URL is present. Confirm event details with the organizer before making plans.
+
+Technology
+
+•
+Node.js and Express
+
+•
+Native HTML, CSS and browser JavaScript modules (no React or Next.js)
+
+•
+MongoDB Atlas and Mongoose for accounts and durable user data
+
+•
+Google Gemini through the backend-only @google/genai package (optional)
+
+•
+Nager.Date public-holiday API for festival calendar dates (optional/unkeyed public endpoint)
+
+•
+Optional event-provider integration through server-side environment variables
+
+Run locally on Windows
+
+Install Node.js 22.12 or newer and npm 10 or newer. Open PowerShell and change to the folder containing package.json. In the downloaded folder layout, that may be:
+
+Plain Text
+
+
+cd "C:\Users\YOUR_NAME\Downloads\Build and preview the EventEase website\EventEase-source\eventease"
+
+
+
+Use your actual Windows account and extracted folder path. Check that you are in the correct folder:
+
+Plain Text
+
+
+Test-Path .\package.json
+
+
+
+It should print True. On the first run, create a local environment file and install dependencies:
+
+Plain Text
+
+
+Copy-Item .env.example .env
 npm install
+
+
+
+If .env already exists, do not overwrite it—just run npm install if dependencies have not yet been installed. Start the development server with:
+
+Plain Text
+
+
 npm run dev
-```
 
-Open `http://localhost:5000`. Change `PORT` to `3000` if you need to use the same port as the hosted preview. The starter `.env` template includes blank placeholders for the requested variables; never commit it. `.gitignore` excludes `.env`.
 
-Useful commands:
 
-```sh
-npm start          # production server
-npm run dev        # Node watch mode
-npm test           # API and business-logic tests
-npm run check      # JavaScript syntax checks
-npm run seed        # seed the configured MongoDB with curated sample events
-```
+Open 
+http://localhost:5000. Keep that PowerShell window open while using the local site. After closing the terminal or restarting the computer, open PowerShell again, return to the folder containing package.json, and run npm run dev.
 
-## MongoDB Atlas and accounts
+Press Ctrl+C in the server window to stop it.
 
-1. Create an Atlas project and a database user with a strong password.
-2. Allow network access from the application host. Use a narrow allow-list where the host supplies stable egress; avoid leaving `0.0.0.0/0` open longer than needed.
-3. Copy the Node.js connection string and replace the example database name if desired.
-4. Put the connection string in `.env` as `MONGODB_URI=...`. Create a long random `SESSION_SECRET` separately. Never commit either value.
-5. Start the app. Registration and sign-in then use bcrypt-hashed passwords and server-side sessions stored in MongoDB. Each plan, guest, expense, task and bookmark query is scoped to the signed-in user.
-6. Run `npm run seed` to insert clearly labeled curated sample listings. Re-running the seed upserts the examples rather than inventing live data.
+Useful commands
 
-Without a reachable `MONGODB_URI`, health checks and curated event discovery remain available, and signup returns a clear setup response. Temporary dashboard guest/expense/task entries are held only in the current page session and are not a database replacement.
+Plain Text
 
-## Gemini setup
 
-Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey) and set it in the server-only `.env` entry `GEMINI_API_KEY=...`. The default model is `gemini-3.8-flash`; override it with `GEMINI_MODEL` if your Google AI Studio project has different availability. The client uses Google's official `@google/genai` package and the Interactions API with a JSON response schema. The backend parses and validates the structured plan before returning it. Keys never go into browser code or API responses.
+npm start       # Run the regular server command
+npm run dev     # Run locally with Node watch mode
+npm test        # Run the automated tests
+npm run check   # Check JavaScript syntax
+npm run seed    # Add the clearly labeled sample events to the configured MongoDB
 
-If `GEMINI_API_KEY` is missing, the planner clearly says its result came from the local planning guide, not from AI. If the model errors, returns invalid JSON, or its output fails checks, EventEase keeps the form details and offers a validated local fallback. Every cost is an estimate, not a vendor quotation.
 
-Google references: [JavaScript quickstart and structured output](https://ai.google.dev/gemini-api/docs/quickstart?lang=node), [Gemini 3.8 Flash model details](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash), [model catalog](https://ai.google.dev/gemini-api/docs/models), [Interactions API](https://ai.google.dev/gemini-api/docs/interactions), and [structured-output guide](https://ai.google.dev/gemini-api/docs/structured-output). EventEase submits `store: false` for private planning details. A key's presence is not proof that it can call a model: authentication, quota, output-schema and transient service failures are explained separately when the plan uses its local fallback.
 
-## Optional discovery providers
+Local environment setup
 
-No global event database is configured by default. Curated entries and festival ideas are presented as samples or planning inspiration, never as a live ticket listing. If you connect an event provider, set `EVENTS_API_KEY` and `EVENTS_API_BASE_URL`. The provider is expected to accept `q`, `city` and `category` query parameters and return JSON shaped like `{ "events": [{ "id": "...", "title": "...", "startsAt": "ISO-8601", "category": "...", "city": "...", "format": "in-person", "description": "...", "image": "https://...", "link": "https://...", "popularity": 0 }] }`. `popularity` is optional and must be an actual nonnegative provider score for the “Most popular” sort to appear. Stable event IDs are required for bookmarks and share links; records without IDs are not shown. Authentication is sent in a server-side Bearer header. Returned records are labeled “Verified external listing”; configure only an endpoint and key from a provider you trust. For venue search, optional `VENUES_API_KEY` and `VENUES_API_BASE_URL` use a server-side JSON `{ "options": [{ "id": "...", "name": "...", "category": "venue", "city": "...", "capacity": 80, "estimatedCost": 30000, "currency": "INR", "link": "https://..." }] }` contract and receive `city`, `category`, `capacity` and `maxPrice` filters. Without that provider, the comparison workspace accepts manually entered options; no venue businesses, availability, reviews or contact details are fabricated.
+The .env.example file is a template. Copy it to .env for local development and put local values only in .env:
 
-## Festival dates and local calendars
+Plain Text
 
-Seasonal cards are planning guides, not event listings. For exact future dates, the backend optionally reads the public [Nager.Date v4 holiday API](https://nagerholidays.com/api/v4/Holidays/{CountryCode}/{Year}) for the selected country and, when supplied, a first-level ISO subdivision code such as `IN-MH`. Its public holiday dates are cached for six hours. This feed is not city-specific, may not publish future years yet, and does not cover every religious/local observance; lunar dates such as Eid can depend on local moon sighting. EventEase therefore shows an approximate season or “date varies” and does not highlight an unverified day in the monthly calendar. No API key is required for the public holiday endpoint; if it is unavailable, festival context and the manual guide still work.
 
-Reference: [Nager.Date project/API and data coverage](https://github.com/nager/nager.date).
+PORT=5000
+NODE_ENV=development
+MONGODB_URI=
+SESSION_SECRET=
+PREVIEW_SECURE_COOKIE=false
+GEMINI_API_KEY=
+EVENTS_API_KEY=
+EVENTS_API_BASE_URL=
+CLIENT_BASE_URL=http://localhost:5000
+VENUES_API_KEY=
+VENUES_API_BASE_URL=
+GEMINI_MODEL=gemini-3.8-flash
 
-## REST API overview
 
-All application endpoints are under `/api`. `GET /api/health` reports a small health object; `GET /api/status` reports which integrations are configured without exposing credentials. `GET /api/events` supports text, city, category, format, next-days and sample-price filters plus pagination; `POST /api/events` accepts an authenticated, clearly labeled member listing. `GET /api/events/festivals?country=IN&region=IN-MH` returns date-confidence labels for the selected country/subdivision; both query parameters are optional, and `region` must belong to the selected country. `POST /api/plans/generate` generates a plan draft; `POST /api/plans/generate/section` refreshes a section. Authenticated MongoDB users get `/api/auth`, `/api/plans`, `/api/auth/saved`, and nested plan routes `/api/plans/:planId/guests`, `/expenses`, `/tasks` and `/venues` for owned list/create/update/delete operations. Saved drafts reopen for editing and update in place. Plan deletion transactionally removes associated guests, costs, tasks and venue options. Responses omit database ownership internals and use `{ ok, data }` on success and `{ ok: false, error: { code, message } }` on errors.
 
-## Render deployment
+Leave optional values blank when you do not use that integration. Do not commit .env, share it, or paste secret keys into GitHub, browser code or chat. Only commit .env.example, which contains placeholders.
 
-1. Push this source to a Git repository and create a Render Web Service using the Dockerfile.
-2. Set the build context to the repository root. The container installs production dependencies and starts with `npm start`.
-3. Configure `PORT=5000`, `NODE_ENV=production`, a long random `SESSION_SECRET`, and a MongoDB Atlas `MONGODB_URI`. Add `GEMINI_API_KEY` only if AI generation is desired. Add `EVENTS_API_KEY` and `EVENTS_API_BASE_URL` only for an actual event provider.
-4. Configure a health check at `/api/health`.
-5. Set `CLIENT_BASE_URL` to the deployed site origin if you host a separate local frontend; the standard deployment serves UI and API from one origin.
-6. Keep secrets in the host’s protected environment settings, not source control. Confirm TLS and Atlas IP/network rules before opening registration.
+Accounts and MongoDB Atlas
 
-The Express app serves `public/` directly, so a separate frontend server is not required. The same container honors the runtime `PORT` environment variable.
+A reachable MongoDB Atlas connection is required for registration, sign-in and durable saved data. Configure MONGODB_URI and a long, random SESSION_SECRET in the server environment. Check Atlas database credentials, URI encoding and Network Access rules if the app reports that the database is unavailable.
 
-## Security and data notes
+Without a working database, public discovery and the local planner fallback can still load, but account-based saving and durable dashboard data are unavailable. Temporary browser/session data is not a substitute for database persistence.
 
-Passwords are hashed using bcryptjs. Sessions use an HttpOnly cookie, with `Secure; SameSite=None` on the HTTPS Manus Preview or production and local-HTTP handling kept separate. Set `PREVIEW_SECURE_COOKIE=true` only when serving inside public HTTPS Preview; leave it false for ordinary `http://localhost`. Production sets secure cookies automatically. Unsafe API requests require a cryptographically random session-bound CSRF header, and a missing `SESSION_SECRET` disables account mutations with clear setup guidance. Helmet security headers, a bounded JSON body, same-origin defaults, auth/AI rate limits, input schemas, generic production errors, and server-side user ownership filters are enabled. The app does not set `X-Frame-Options` or restrictive `frame-ancestors` that would block the hosted preview. Do not paste keys into source files or browser devtools.
+Gemini planner
 
-Seasonal festival dates not returned by the selected country's published holiday feed remain approximate; lunar, state-level and city calendars can differ. Currency display formats numbers but does not convert them. A saved plan keeps one consistent currency; its currency selector is locked to avoid silently relabeling existing estimates. If a saved-data request fails, the dashboard offers a real retry and does not overwrite the MongoDB data with its temporary session-only draft. The page-session demo data is temporary. Use MongoDB for durable accounts and user-owned data.
+To enable Gemini, create a key in 
 
-## Troubleshooting
+Google AI Studio and configure it as the server-side GEMINI_API_KEY. The default model is gemini-3.8-flash; change GEMINI_MODEL only if your AI Studio project uses a different available model. Never add the key to frontend JavaScript. A configured key can still encounter model access, quota or rate-limit errors; in those cases EventEase explains that it is using the local planning guide instead.
 
-- **App opens but sign-in says MongoDB is missing:** set `MONGODB_URI` and `SESSION_SECRET`, verify Atlas IP access and database credentials, then restart.
-- **Mongo connection fails:** inspect the Atlas connection string, database user password escaping, TLS/network allow-list and host egress. The startup log reports the error category without echoing the DSN.
-- **AI draft says local guide:** add a valid server-side `GEMINI_API_KEY`; check model access and quota in Google AI Studio. The deterministic fallback is still available.
-- **External feed is empty:** without an event provider key and compatible base URL, only curated and user-created listings are expected. The provider response must contain an `events` array with titles and ISO date values.
-- **A festival shows a season rather than a day:** the selected country/region feed did not publish a future date, or the observance depends on local moon sighting. Check the local calendar before making plans; unconfirmed days are intentionally not placed on the month grid.
-- **Port is already used:** set `PORT` to an available port and update your preview/runtime settings accordingly.
-- **Changes look cached:** clear site data or unregister the service worker; the current shell uses the `eventease-shell-v3` cache and removes older versions on activation. The service worker does not cache API or account responses.
+Events and venues
 
-## Project layout
+Event discovery works without a third-party event provider by showing curated sample ideas and, when enabled, member-created listings. For actual external listings, configure a compatible event provider on the server using EVENTS_API_KEY and EVENTS_API_BASE_URL. If using the PredictHQ adapter in this repository, use the PredictHQ Events API base URL:
 
-`public/` contains the home page, responsive design system, local photography, manifest, service worker, route manifest and modular browser code for API/auth/discovery/festival calendar/planner/dashboard/community listings/venues. `src/` separates configuration, Mongoose models (including saved venue comparisons), middleware, REST routes, validators and provider/fallback services, including Nager.Date lookup and transactional plan cleanup. `scripts/seed.js` contains repeatable demo data; `tests/` contains API and business-logic coverage.
+Plain Text
+
+
+EVENTS_API_BASE_URL=https://api.predicthq.com/v1
+
+
+
+Only an actual PredictHQ key belongs in EVENTS_API_KEY; do not generate a random replacement. PredictHQ results can include active and predicted records, holidays and observances. Predicted event details may change; an active state means the provider has confirmed event details, not that an event can never later change or be canceled. Check the organizer's official information before attending.
+
+PredictHQ does not provide venue-business listings, prices or availability. Leave VENUES_API_KEY and VENUES_API_BASE_URL blank unless you have a separate venue-directory provider that implements the app's expected API format. Manual venue comparison remains available.
+
+Deploy on Render
+
+The Render service uses the Node runtime, not the Docker runtime. In the Render service settings:
+
+•
+Root Directory: eventease if the GitHub repository contains the project inside an eventease subfolder; leave it blank if package.json is at the repository root.
+
+•
+Build Command: npm ci
+
+•
+Start Command: npm start
+
+•
+Health Check Path: /api/health
+
+In Render's Environment settings, configure:
+
+Plain Text
+
+
+NODE_ENV=production
+NODE_VERSION=22.22.0
+SESSION_SECRET=<a privately generated random value>
+MONGODB_URI=<your MongoDB Atlas connection string>
+
+
+
+Add GEMINI_API_KEY only if you want Gemini planning. Add EVENTS_API_KEY and EVENTS_API_BASE_URL only if you have an actual compatible event integration. Render supplies PORT; do not set it manually. For the normal same-origin deployment, the frontend and API are served by the same Express application. Keep your local .env settings such as CLIENT_BASE_URL=http://localhost:5000 for local use; do not copy the entire local .env to Render.
+
+Render free web services may spin down after being idle and take time to start on the next request. For durable application data, use MongoDB Atlas rather than local files. See 
+
+Render's Node/Express deployment guide, 
+
+Node version settings, and 
+
+free service limitations.
+
+Security and data notes
+
+Passwords are hashed, session cookies are HTTP-only, and account-owned records are scoped to their user. The API uses server-side validation and CSRF protection for unsafe requests. Keep production secrets in Render's protected Environment settings, never in source code. The production app enables secure cookies automatically over HTTPS.
+
+Festival guidance is not a substitute for an official local calendar. Currency formatting does not convert exchange rates. Venue costs and planner budgets are estimates and should be confirmed with providers.
+
+Health and troubleshooting
+
+•
+Check application health: open /api/health on the website's origin. status: "ok" means the Express service answered; check the database field separately for MongoDB connectivity.
+
+•
+Sign-in or saving unavailable: confirm that MONGODB_URI and SESSION_SECRET are set in Render and that Atlas permits the Render service to connect.
+
+•
+Planner says it used a local guide: check that GEMINI_API_KEY is correct and that the Google AI Studio project has model access and available quota.
+
+•
+Event provider results are empty: confirm the provider key, base URL and adapter/response format. An API key being present does not prove that it returned matching events.
+
+•
+Venue results are empty: PredictHQ is not a venue-business directory. Use manual venue options or configure a separate compatible venue provider.
+
+•
+Render cannot find package.json: set the service's Root Directory to the folder that contains package.json—eventease for the nested GitHub layout.
+
+•
+Local port is already in use: change PORT in your local .env to another available port, then use that port in your browser.
+
+Project layout
+
+Plain Text
+
+
+public/       HTML, CSS, images, browser JavaScript modules and static assets
+src/          Express app, routes, database config, models, middleware and services
+scripts/      Data-seeding utility
+tests/        Automated tests
+.env.example  Safe local environment template
+package.json  Commands and dependencies
+
+
+
+
