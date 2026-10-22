@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17151d" />
+    <meta
+      name="description"
+      content="Find the moments worth gathering for, and plan them beautifully. EventEase brings discovery, ideas and event details into one thoughtful workspace."
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f47c67'/%3E%3Cpath d='M20 43V21l12 13 12-13v22' fill='none' stroke='%2317151d' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <title>EventEase — Every Occasion, Beautifully Planned</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="notice-bar">
+      <span>Good plans leave room for the good bits.</span
+      ><span class="notice-dot"></span
+      ><span>Curated ideas. Your people. Your pace.</span>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="EventEase home"
+        ><span class="brand-mark" aria-hidden="true"
+          ><svg viewBox="0 0 32 32"><path d="M8 23V9l8 9 8-9v14" /></svg></span
+        ><span class="brand-name">event<span>ease</span><i>.</i></span></a
+      >
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#explore">Explore</a><a href="#festivals">Festivals</a
+        ><a href="#planner">AI planner</a><a href="#my-events">My events</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-quiet" id="header-login" type="button">
+          Sign in</button
+        ><button
+          class="button button-coral button-small"
+          id="header-start"
+          type="button"
+        >
+          Plan an event <span aria-hidden="true">↗</span></button
+        ><button
+          class="icon-button menu-toggle"
+          id="menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-star">✳</span> A LITTLE MORE INTENTIONAL
+          </p>
+          <h1 id="hero-title">
+            Every Occasion.<br /><em>Beautifully</em> Planned.
+          </h1>
+          <p class="hero-lede">
+            From the first “what if?” to the last song. Find things worth
+            showing up for, or make a moment of your own.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-coral" id="hero-planner" type="button">
+              Build my plan <span aria-hidden="true">↗</span></button
+            ><a class="text-link" href="#explore"
+              >See what’s happening <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="hero-footnote">
+            <span class="live-mark"></span
+            ><span>Thoughtful ideas for celebrations near and far</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Warm light-filled festival scene">
+          <img
+            src="/assets/diwali-lights.jpg"
+            alt="A glowing diya surrounded by colorful lights during a Diwali celebration"
+            fetchpriority="high"
+          />
+          <div class="image-label">
+            <span class="label-icon">✳</span
+            ><span
+              ><strong>Make room for a little wonder.</strong
+              ><small>A note from our seasonal guide</small></span
+            >
+          </div>
+          <div class="hero-stamp" aria-hidden="true">
+            <span>ideas for</span><strong>good<br />gatherings</strong
+            ><span>✳ &nbsp; est. for you</span>
+          </div>
+        </div>
+        <div class="hero-index" aria-hidden="true">01 <span>/</span> 04</div>
+      </section>
+      <section class="search-wrap" aria-label="Find an event">
+        <form class="search-panel" id="search-form">
+          <label class="search-field"
+            ><i data-lucide="search"></i
+            ><span
+              ><small>I’M LOOKING FOR</small
+              ><input
+                id="search-query"
+                name="q"
+                type="search"
+                placeholder="A concert, a workshop…" /></span></label
+          ><span class="search-divider"></span
+          ><label class="search-field"
+            ><i data-lucide="map-pin"></i
+            ><span
+              ><small>AROUND</small
+              ><input
+                id="search-city"
+                name="city"
+                type="text"
+                placeholder="City or online" /></span></label
+          ><span class="search-divider"></span
+          ><label class="search-field search-date"
+            ><i data-lucide="calendar-days"></i
+            ><span
+              ><small>WHEN</small
+              ><select id="search-when" name="when">
+                <option value="any">Any time</option>
+                <option value="30">Next 30 days</option>
+                <option value="90">Next 3 months</option>
+              </select></span
+            ></label
+          ><button class="button button-ink search-submit" type="submit">
+            Find a moment <span aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p class="search-note">
+          <span>⌕</span> Listings here are curated samples unless marked
+          otherwise.
+        </p>
+      </section>
+      <section class="section section-explore" id="explore">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A GOOD PLACE TO START</p>
+            <h2>Find your kind of <em>occasion.</em></h2>
+          </div>
+          <a class="text-link desktop-only" href="#explore" id="see-all-events"
+            >Browse all ideas <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="category-row" role="group" aria-label="Filter by category">
+          <button
+            class="category-chip is-active"
+            data-category=""
+            type="button"
+          >
+            <span>✳</span> Editor’s picks</button
+          ><button class="category-chip" data-category="Festival" type="button">
+            Festivals</button
+          ><button class="category-chip" data-category="Music" type="button">
+            Live music</button
+          ><button class="category-chip" data-category="Workshop" type="button">
+            Workshops</button
+          ><button class="category-chip" data-category="Wedding" type="button">
+            Weddings</button
+          ><button
+            class="category-chip"
+            data-category="Community"
+            type="button"
+          >
+            Community</button
+          ><label class="format-filter"
+            ><span class="sr-only">Event format</span
+            ><select id="format-filter">
+              <option value="">All formats</option>
+              <option value="in-person">In person</option>
+              <option value="online">Online</option>
+            </select></label
+          ><label class="format-filter price-filter"
+            ><span class="sr-only">Price range</span
+            ><select id="price-filter">
+              <option value="">Any price</option>
+              <option value="free">Free</option>
+              <option value="under500">Under ₹500</option>
+              <option value="under1000">Under ₹1,000</option>
+            </select></label
+          >
+        </div>
+        <div class="results-line">
+          <p id="event-results-label">A handful of good ideas, hand picked.</p>
+          <button class="sort-button" type="button" id="sort-events">
+            Soonest first <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+        <div class="event-grid" id="event-grid" aria-live="polite"></div>
+        <div class="empty-state" id="event-empty" hidden>
+          <span class="empty-spark">✳</span>
+          <h3>No moments found just yet.</h3>
+          <p>Try a different city or loosen one of your filters.</p>
+          <button class="text-link" id="clear-search" type="button">
+            Clear your search <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="section-cta">
+          <span>Not quite your thing?</span
+          ><button
+            class="button button-outline"
+            id="make-your-own"
+            type="button"
+          >
+            Share an event <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+      <section class="festival-band" id="festivals">
+        <div class="festival-intro">
+          <p class="eyebrow eyebrow-light">THE SEASON, IN GOOD COMPANY</p>
+          <h2>Dates that deserve<br />a <em>little more meaning.</em></h2>
+          <p>
+            Some dates move. Some traditions travel. Take these as a starting
+            point, and always check the local calendar.
+          </p>
+          <a class="light-link" href="#festival-list"
+            >Explore the festival guide <span aria-hidden="true">↗</span></a
+          >
+          <form class="festival-location" id="festival-location-form">
+            <label for="festival-country">Calendar location</label>
+            <select id="festival-country" name="country">
+              <option value="IN" selected>India</option>
+              <option value="AU">Australia</option>
+              <option value="CA">Canada</option>
+              <option value="GB">United Kingdom</option>
+              <option value="US">United States</option>
+            </select>
+            <label for="festival-region">State / subdivision (optional)</label>
+            <input
+              id="festival-region"
+              name="region"
+              maxlength="11"
+              pattern="[A-Z]{2}-[A-Z0-9-]{1,8}"
+              placeholder="IN-MH"
+              autocapitalize="characters"
+              spellcheck="false"
+            />
+            <small>Example: IN-MH · city programs may differ.</small>
+            <button type="submit">Update calendar</button>
+          </form>
+          <div class="festival-counter">
+            <strong id="festival-count">10</strong
+            ><span>seasonal guides<br />to explore</span>
+          </div>
+        </div>
+        <div class="festival-feature" id="festival-feature">
+          <div class="festival-feature-photo">
+            <img
+              src="/assets/diwali-lights.jpg"
+              alt="Warm festival lights"
+              loading="lazy"
+            /><span class="photo-caption"
+              >A season for gathering <span>✳</span></span
+            >
+          </div>
+          <div class="festival-feature-note">
+            <small>ON THE HORIZON</small
+            ><strong>Make space<br />for celebration.</strong
+            ><span id="next-festival-note"
+              >Thoughtful ideas, never a substitute for your local
+              calendar.</span
+            >
+          </div>
+        </div>
+        <div
+          class="festival-list"
+          id="festival-list"
+          aria-label="Seasonal celebration guide"
+        ></div>
+      </section>
+      <section class="planner-feature" id="planner">
+        <div class="planner-illustration" aria-hidden="true">
+          <div class="planner-ring planner-ring-one"></div>
+          <div class="planner-ring planner-ring-two"></div>
+          <span class="planner-spark planner-spark-one">✳</span
+          ><span class="planner-spark planner-spark-two">✴</span>
+          <div class="planner-note-card">
+            <small>YOUR PLAN, IN ONE PLACE</small><span class="note-line"></span
+            ><span class="note-line short"></span
+            ><span class="note-dotline"></span><span class="note-line"></span>
+          </div>
+          <div class="planner-orbit-label">
+            a good plan<br />starts with you
+          </div>
+        </div>
+        <div class="planner-feature-copy">
+          <p class="eyebrow">LESS SPREADSHEET. MORE SPIRIT.</p>
+          <h2>What if the planning<br />felt like <em>part of it?</em></h2>
+          <p>
+            Tell us what you’re bringing people together for. Get a thoughtful
+            first draft with a schedule, budget, menu ideas and the details you
+            might not have thought to ask about.
+          </p>
+          <ul class="planner-benefits">
+            <li><span>01</span> A plan shaped around your people</li>
+            <li><span>02</span> Realistic estimates, not pretend quotes</li>
+            <li><span>03</span> A useful draft, even without AI</li>
+          </ul>
+          <button class="button button-ink" id="planner-open" type="button">
+            Start with the occasion <span aria-hidden="true">↗</span>
+          </button>
+          <p class="privacy-note">
+            <i data-lucide="lock-keyhole"></i> Your details stay on this page
+            until you choose to save.
+          </p>
+        </div>
+      </section>
+      <section class="numbers-strip" aria-label="EventEase planning philosophy">
+        <div>
+          <strong>01</strong><span>good reason<br />to get together</span>
+        </div>
+        <div>
+          <strong>∞</strong><span>ways to make<br />it your own</span>
+        </div>
+        <div class="numbers-note">
+          <p>
+            Not everything has to be big to be memorable. A table, a playlist,
+            the right people — that counts.
+          </p>
+          <a class="text-link" href="#home"
+            >That’s the whole idea <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section class="workspace-section" id="my-events">
+        <div class="workspace-heading">
+          <div>
+            <p class="eyebrow">YOUR PLANNING DESK</p>
+            <h2>All the details,<br /><em>in one place.</em></h2>
+          </div>
+          <div class="workspace-account" id="account-summary">
+            <span class="avatar-dot">e</span
+            ><span id="account-label">Your workspace is ready</span
+            ><button
+              class="text-link"
+              id="workspace-profile"
+              type="button"
+              hidden
+            >
+              Edit profile</button
+            ><button class="text-link" id="workspace-login" type="button">
+              Sign in <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
+        <div class="workspace-notice" id="workspace-notice">
+          <i data-lucide="info"></i
+          ><span
+            >Connect MongoDB Atlas to create an account and keep your plans. You
+            can still explore ideas and build a draft right now.</span
+          ><button type="button" id="workspace-connect">
+            Account setup <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <div class="workspace-tabs" role="tablist" aria-label="Planning tools">
+          <button
+            class="workspace-tab is-selected"
+            data-tab="overview"
+            role="tab"
+            aria-selected="true"
+            type="button"
+          >
+            Overview</button
+          ><button
+            class="workspace-tab"
+            data-tab="guests"
+            role="tab"
+            aria-selected="false"
+            type="button"
+          >
+            Guest list <span id="guest-tab-count">0</span></button
+          ><button
+            class="workspace-tab"
+            data-tab="budget"
+            role="tab"
+            aria-selected="false"
+            type="button"
+          >
+            Budget</button
+          ><button
+            class="workspace-tab"
+            data-tab="tasks"
+            role="tab"
+            aria-selected="false"
+            type="button"
+          >
+            To-do list
+          </button>
+        </div>
+        <div
+          class="workspace-panel is-visible"
+          data-panel="overview"
+          role="tabpanel"
+        >
+          <div class="workspace-empty">
+            <div class="empty-illustration">
+              <span>✳</span><span>02</span><i></i>
+            </div>
+            <div>
+              <p class="eyebrow">YOUR NEXT GOOD THING</p>
+              <h3 id="dashboard-title">No plans saved here yet.</h3>
+              <p id="dashboard-description">
+                Start a draft and keep everything together. Saving to an account
+                becomes available when MongoDB is connected.
+              </p>
+              <button
+                class="button button-coral"
+                id="dashboard-start"
+                type="button"
+              >
+                Plan a celebration <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+          <div class="saved-plans-control" id="saved-plans-control" hidden>
+            <label for="saved-plan-select">Working on</label
+            ><select
+              id="saved-plan-select"
+              aria-label="Choose a saved event plan"
+            ></select
+            ><button
+              class="button button-outline button-small"
+              id="edit-saved-plan"
+              type="button"
+            >
+              Open plan
+            </button>
+          </div>
+          <div class="dashboard-snapshot">
+            <div>
+              <small>GUESTS INVITED</small><strong id="dash-guests">0</strong>
+            </div>
+            <div>
+              <small>CONFIRMED</small><strong id="dash-confirmed">0</strong>
+            </div>
+            <div>
+              <small>SPENT SO FAR</small><strong id="dash-spent">₹0</strong>
+            </div>
+            <div>
+              <small>TO-DO ITEMS</small><strong id="dash-tasks">0</strong>
+            </div>
+          </div>
+          <section
+            class="saved-events-overview"
+            aria-labelledby="saved-events-title"
+          >
+            <div class="panel-toolbar">
+              <div>
+                <h3 id="saved-events-title">Saved events</h3>
+                <p>A few possibilities to come back to.</p>
+              </div>
+              <a class="text-link" href="#explore">Explore ideas ↗</a>
+            </div>
+            <div
+              id="saved-event-list"
+              class="saved-event-list"
+              aria-live="polite"
+            ></div>
+            <p id="saved-event-empty" class="saved-event-empty">
+              Sign in to keep a list of events you like.
+            </p>
+          </section>
+        </div>
+        <div class="workspace-panel" data-panel="guests" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <div>
+              <h3>Guest list</h3>
+              <p>Keep names, RSVPs and the little things in one place.</p>
+            </div>
+            <button
+              class="button button-outline button-small"
+              id="copy-invitation"
+              type="button"
+            >
+              Copy invitation</button
+            ><button
+              class="button button-outline button-small"
+              id="export-guests"
+              type="button"
+            >
+              <i data-lucide="download"></i> Export CSV
+            </button>
+          </div>
+          <div class="guest-counts" aria-label="RSVP totals">
+            <div>
+              <small>INVITED</small><strong id="guest-invited">0</strong>
+            </div>
+            <div>
+              <small>CONFIRMED</small><strong id="guest-confirmed">0</strong>
+            </div>
+            <div>
+              <small>DECLINED</small><strong id="guest-declined">0</strong>
+            </div>
+            <div>
+              <small>PENDING</small><strong id="guest-pending">0</strong>
+            </div>
+          </div>
+          <form class="inline-form" id="guest-form">
+            <input
+              required
+              name="name"
+              placeholder="Guest name"
+              aria-label="Guest name"
+            /><input
+              name="email"
+              type="email"
+              placeholder="Email (optional)"
+              aria-label="Guest email"
+            /><input
+              name="phone"
+              type="tel"
+              placeholder="Phone (optional)"
+              aria-label="Guest phone"
+            /><input
+              name="dietaryNotes"
+              placeholder="Dietary note (optional)"
+              aria-label="Dietary note"
+            /><input
+              name="specialRequirements"
+              placeholder="Accessibility or other needs (optional)"
+              aria-label="Special requirements"
+            /><select name="status" aria-label="RSVP status">
+              <option value="pending">Awaiting reply</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="declined">Declined</option></select
+            ><button class="button button-ink button-small" type="submit">
+              Add guest
+            </button>
+          </form>
+          <div class="guest-filter">
+            <label for="guest-status-filter">Show guests</label
+            ><select id="guest-status-filter">
+              <option value="all">Everyone</option>
+              <option value="pending">Awaiting reply</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="declined">Declined</option>
+            </select>
+          </div>
+          <div class="mini-list" id="guest-list"></div>
+          <p class="ephemeral-note">
+            Entries can stay only for this page session until you connect
+            MongoDB and save a plan.
+          </p>
+        </div>
+        <div class="workspace-panel" data-panel="budget" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <div>
+              <h3>A budget with breathing room</h3>
+              <p>Estimates to help you decide; not vendor quotes.</p>
+            </div>
+            <label class="budget-total-label"
+              >Your ceiling
+              <span
+                ><input
+                  id="budget-total"
+                  type="number"
+                  min="0"
+                  max="100000000"
+                  value="50000"
+                  aria-label="Total budget"
+                /><select id="budget-currency" aria-label="Budget currency">
+                  <option value="INR">INR ₹</option>
+                  <option value="USD">USD $</option>
+                  <option value="EUR">EUR €</option>
+                  <option value="GBP">GBP £</option>
+                </select></span
+              ></label
+            >
+            <small class="budget-currency-help" id="budget-currency-help">
+              Choose your currency before adding costs. No conversion is
+              performed.
+            </small>
+          </div>
+          <form class="inline-form expense-form" id="expense-form">
+            <input
+              required
+              name="title"
+              placeholder="Expense name"
+              aria-label="Expense name"
+            /><select name="category" aria-label="Expense category">
+              <option>Venue</option>
+              <option>Food</option>
+              <option>Decoration</option>
+              <option>Entertainment</option>
+              <option>Travel</option>
+              <option>Gifts</option>
+              <option>Miscellaneous</option></select
+            ><input
+              required
+              name="estimated"
+              type="number"
+              min="0"
+              placeholder="Estimated"
+              aria-label="Estimated cost"
+            /><input
+              required
+              name="actual"
+              type="number"
+              min="0"
+              placeholder="Actual"
+              aria-label="Actual cost"
+            /><button class="button button-ink button-small" type="submit">
+              Add cost
+            </button>
+          </form>
+          <div class="expense-actions">
+            <button class="text-link" type="button" id="export-expenses">
+              Export expenses CSV ↗
+            </button>
+          </div>
+          <div class="budget-meter">
+            <div class="meter-labels">
+              <span id="budget-remaining">₹50,000 remaining</span
+              ><span id="budget-planned-label">₹0 planned</span
+              ><span id="budget-spent-label">₹0 spent</span>
+            </div>
+            <div class="meter-track"><span id="budget-meter-fill"></span></div>
+          </div>
+          <div
+            class="budget-breakdown"
+            id="budget-breakdown"
+            role="group"
+            aria-label="Estimated and actual spending by category"
+          ></div>
+          <div class="expense-list" id="expense-list"></div>
+          <p class="ephemeral-note">
+            Currency formatting only; no live currency conversion is used.
+          </p>
+        </div>
+        <div class="workspace-panel" data-panel="tasks" role="tabpanel" hidden>
+          <div class="panel-toolbar">
+            <div>
+              <h3>Little by little</h3>
+              <p>Keep the next useful step in view.</p>
+            </div>
+            <span class="task-badge" id="task-count-badge">0 open</span>
+          </div>
+          <form class="inline-form" id="task-form">
+            <input
+              required
+              name="title"
+              placeholder="What needs doing?"
+              aria-label="Task title"
+            /><input
+              name="dueAt"
+              type="date"
+              aria-label="Task due date"
+            /><input
+              name="startsAt"
+              type="time"
+              aria-label="Agenda start time"
+            /><input
+              name="endsAt"
+              type="time"
+              aria-label="Agenda end time"
+            /><select name="category" aria-label="Task or agenda category">
+              <option>General</option>
+              <option>Event-day agenda</option>
+              <option>Venue</option>
+              <option>Food</option>
+              <option>Decor</option>
+              <option>Travel</option>
+              <option>Guests</option></select
+            ><select name="priority" aria-label="Task priority">
+              <option value="medium">Medium priority</option>
+              <option value="high">High priority</option>
+              <option value="low">Low priority</option></select
+            ><button class="button button-ink button-small" type="submit">
+              Add to-do
+            </button>
+          </form>
+          <p class="agenda-note">
+            Add a date and start/end time to include an item in the event-day
+            agenda. An end time needs a start time and date.
+          </p>
+          <div class="mini-list task-list" id="task-list"></div>
+          <p class="ephemeral-note">
+            Tasks are held in this page only until you connect a database and
+            save a plan.
+          </p>
+        </div>
+      </section>
+      <section class="closing-note">
+        <span class="closing-mark">✳</span>
+        <p>Here’s to the things<br />that bring us <em>together.</em></p>
+        <a href="#home" aria-label="Back to top">Back to the beginning ↑</a>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-main">
+        <a class="brand brand-footer" href="#home"
+          ><span class="brand-mark"
+            ><svg viewBox="0 0 32 32">
+              <path d="M8 23V9l8 9 8-9v14" /></svg></span
+          ><span class="brand-name">event<span>ease</span><i>.</i></span></a
+        >
+        <p>Good ideas for bringing people<br />together — wherever you are.</p>
+        <nav aria-label="Footer navigation">
+          <a href="#explore">Explore</a><a href="#festivals">Festivals</a
+          ><a href="#planner">AI planner</a><a href="#my-events">My events</a>
+        </nav>
+        <button class="back-top" id="back-top" type="button">↑</button>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 EventEase. Made for good gatherings.</span
+        ><span
+          >Sample event listings are clearly marked. Always confirm details
+          locally.</span
+        ><a href="#home">Privacy-minded by design</a>
+      </div>
+    </footer>
+    <div
+      class="toast-region"
+      id="toast-region"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <dialog
+      class="app-dialog"
+      id="planner-dialog"
+      aria-labelledby="wizard-title"
+    >
+      <div class="dialog-top">
+        <div>
+          <p class="eyebrow">YOUR OCCASION, YOUR WAY</p>
+          <h2 id="wizard-title">Let’s make a <em>good plan.</em></h2>
+        </div>
+        <button
+          class="icon-button close-dialog"
+          aria-label="Close planner"
+          type="button"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="wizard-progress"><span id="wizard-progress-fill"></span></div>
+      <p class="wizard-step-label" id="wizard-step-label">
+        01 / 03 — The basics
+      </p>
+      <form id="planner-form" novalidate>
+        <fieldset class="wizard-step is-current" data-step="0">
+          <legend>What are you bringing people together for?</legend>
+          <label class="form-label"
+            >Occasion<input
+              name="eventType"
+              list="event-types"
+              placeholder="e.g. birthday dinner, Navratri night"
+              required
+              maxlength="60"
+            /><datalist id="event-types">
+              <option>Birthday</option>
+              <option>Wedding</option>
+              <option>Diwali</option>
+              <option>Holi</option>
+              <option>Navratri</option>
+              <option>Durga Puja</option>
+              <option>Eid</option>
+              <option>Christmas</option>
+              <option>College fest</option>
+              <option>Workshop</option>
+              <option>Community gathering</option>
+            </datalist></label
+          >
+          <div class="form-row">
+            <label class="form-label"
+              >City<input
+                name="city"
+                placeholder="e.g. Bengaluru"
+                maxlength="100" /></label
+            ><label class="form-label"
+              >Country<input
+                name="country"
+                placeholder="e.g. India"
+                maxlength="80"
+            /></label>
+          </div>
+          <div class="form-row">
+            <label class="form-label"
+              >Date<input name="date" type="date" /></label
+            ><label class="form-label"
+              >Guests<input
+                name="guests"
+                type="number"
+                min="1"
+                max="50000"
+                value="40"
+                required
+            /></label>
+          </div>
+          <div class="form-row">
+            <label class="form-label"
+              >Event format<select name="format">
+                <option value="in-person">In person</option>
+                <option value="online">Online</option>
+              </select></label
+            ><label class="form-label"
+              >Duration<select name="durationHours">
+                <option value="2">2 hours</option>
+                <option value="3">3 hours</option>
+                <option value="4" selected>4 hours</option>
+                <option value="6">6 hours</option>
+                <option value="8">All day</option>
+              </select></label
+            >
+          </div>
+        </fieldset>
+        <fieldset class="wizard-step" data-step="1" hidden>
+          <legend>Set the feeling — and the limits.</legend>
+          <div class="form-row">
+            <label class="form-label"
+              >Total budget<input
+                name="budget"
+                type="number"
+                min="0"
+                max="100000000"
+                placeholder="e.g. 50000" /></label
+            ><label class="form-label"
+              >Currency<select name="currency">
+                <option value="INR">INR ₹</option>
+                <option value="USD">USD $</option>
+                <option value="EUR">EUR €</option>
+                <option value="GBP">GBP £</option>
+              </select></label
+            >
+          </div>
+          <label class="form-label"
+            >Style or theme<input
+              name="style"
+              placeholder="e.g. garden supper, old-school Bollywood"
+              maxlength="100" /></label
+          ><label class="form-label"
+            >Atmosphere<textarea
+              name="atmosphere"
+              rows="2"
+              placeholder="How would you like it to feel?"
+              maxlength="160"
+            ></textarea></label
+          ><label class="form-label"
+            >Where will it happen?<select name="setting">
+              <option value="either">Open to either</option>
+              <option value="indoor">Indoors</option>
+              <option value="outdoor">Outdoors</option>
+            </select></label
+          >
+        </fieldset>
+        <fieldset class="wizard-step" data-step="2" hidden>
+          <legend>The details that make it feel like yours.</legend>
+          <label class="form-label"
+            >Food and drink<textarea
+              name="food"
+              rows="2"
+              placeholder="Any menu ideas or preferences?"
+              maxlength="300"
+            ></textarea></label
+          ><label class="form-label"
+            >Dietary needs<textarea
+              name="dietary"
+              rows="2"
+              placeholder="Allergies, dietary requirements, or just ask guests later"
+              maxlength="500"
+            ></textarea>
+          </label>
+          <div class="form-row">
+            <label class="form-label"
+              >Decor<input
+                name="decor"
+                placeholder="Flowers, diyas, keep it simple…"
+                maxlength="300" /></label
+            ><label class="form-label"
+              >Entertainment<input
+                name="entertainment"
+                placeholder="Music, games, a quiet corner…"
+                maxlength="300"
+            /></label>
+          </div>
+          <label class="form-label"
+            >Accessibility<textarea
+              name="accessibility"
+              rows="2"
+              placeholder="Step-free entry, seating, quiet space…"
+              maxlength="500"
+            ></textarea></label
+          ><label class="form-label"
+            >One more thing<textarea
+              name="notes"
+              rows="2"
+              placeholder="Anything else we should keep in mind?"
+              maxlength="1000"
+            ></textarea>
+          </label>
+        </fieldset>
+        <p class="form-error" id="planner-error" role="alert" hidden></p>
+        <div class="wizard-actions">
+          <button
+            class="button button-quiet"
+            id="wizard-back"
+            type="button"
+            hidden
+          >
+            ← Back</button
+          ><span class="wizard-spacer"></span
+          ><button class="button button-ink" id="wizard-next" type="button">
+            Next <span aria-hidden="true">→</span></button
+          ><button
+            class="button button-coral"
+            id="wizard-generate"
+            type="submit"
+            hidden
+          >
+            Make my first draft <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </form>
+      <div id="plan-result" class="plan-result" hidden></div>
+    </dialog>
+    <dialog
+      class="app-dialog detail-dialog"
+      id="event-dialog"
+      aria-labelledby="event-dialog-title"
+    >
+      <div class="dialog-top">
+        <p class="eyebrow">EVENT DETAILS</p>
+        <button
+          class="icon-button close-dialog"
+          aria-label="Close event details"
+          type="button"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div id="event-detail-content"></div>
+    </dialog>
+    <dialog
+      class="app-dialog auth-dialog"
+      id="auth-dialog"
+      aria-labelledby="auth-title"
+    >
+      <div class="dialog-top">
+        <div>
+          <p class="eyebrow">YOUR PLANNING DESK</p>
+          <h2 id="auth-title">Keep it <em>together.</em></h2>
+        </div>
+        <button
+          class="icon-button close-dialog"
+          aria-label="Close account dialog"
+          type="button"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <p class="auth-intro">
+        Create an account to keep your plans, guest list and budgets in one
+        place.
+      </p>
+      <div class="auth-tabs">
+        <button
+          class="auth-tab is-selected"
+          type="button"
+          data-auth-mode="login"
+        >
+          Sign in</button
+        ><button class="auth-tab" type="button" data-auth-mode="register">
+          Create account
+        </button>
+      </div>
+      <form id="auth-form">
+        <label class="form-label auth-name" hidden
+          >Your name<input
+            name="name"
+            autocomplete="name"
+            minlength="2"
+            maxlength="90" /></label
+        ><label class="form-label"
+          >Email<input
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+            maxlength="254" /></label
+        ><label class="form-label"
+          >Password<input
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            minlength="10"
+            maxlength="128"
+            required
+          /><small>At least 10 characters.</small></label
+        >
+        <p class="form-error" id="auth-error" role="alert" hidden></p>
+        <button class="button button-ink auth-submit" type="submit">
+          Sign in <span aria-hidden="true">↗</span>
+        </button>
+      </form>
+      <p class="auth-setup-note" id="auth-setup-note">
+        MongoDB Atlas is required for secure accounts and saved plans. Your form
+        stays here if setup isn’t ready yet.
+      </p>
+    </dialog>
+    <dialog
+      class="app-dialog event-create-dialog"
+      id="event-create-dialog"
+      aria-labelledby="event-create-title"
+    >
+      <div class="dialog-top">
+        <div>
+          <p class="eyebrow">COMMUNITY CALENDAR</p>
+          <h2 id="event-create-title">Share what’s <em>happening.</em></h2>
+        </div>
+        <button
+          class="icon-button close-dialog"
+          aria-label="Close event form"
+          type="button"
+        >
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <p class="event-create-note">
+        Only events you submit appear here as community listings. Dates, prices
+        and links are shown as supplied, not independently verified.
+      </p>
+      <form class="event-create-form" id="event-create-form">
+        <label class="form-label"
+          >Event name<input
+            name="title"
+            required
+            minlength="3"
+            maxlength="140"
+            placeholder="A name people will remember"
+        /></label>
+        <div class="form-row">
+          <label class="form-label"
+            >Category<select name="category" required>
+              <option>Festival</option>
+              <option>Birthday</option>
+              <option>Wedding</option>
+              <option>Music</option>
+              <option>Workshop</option>
+              <option>Conference</option>
+              <option>Hackathon</option>
+              <option>Community</option>
+              <option>Other</option>
+            </select></label
+          >
+          <label class="form-label"
+            >Date and time<input name="startsAt" type="datetime-local" required
+          /></label>
+        </div>
+        <div class="form-row">
+          <label class="form-label"
+            >City or online<input
+              name="city"
+              required
+              maxlength="100"
+              placeholder="City or Online"
+          /></label>
+          <label class="form-label"
+            >Format<select name="format">
+              <option value="in-person">In person</option>
+              <option value="online">Online</option>
+            </select></label
+          >
+        </div>
+        <div class="form-row">
+          <label class="form-label"
+            >Venue (optional)<input
+              name="venue"
+              maxlength="160"
+              placeholder="Name or details to confirm"
+          /></label>
+          <label class="form-label"
+            >Organizer (optional)<input
+              name="organizer"
+              maxlength="120"
+              placeholder="As shown on your listing"
+          /></label>
+        </div>
+        <div class="form-row">
+          <label class="form-label"
+            >Price note (optional)<input
+              name="price"
+              maxlength="100"
+              placeholder="Free, ₹500, or details to confirm"
+          /></label>
+          <label class="form-label"
+            >Event page link (optional)<input
+              name="link"
+              type="url"
+              maxlength="500"
+              pattern="https?://.*"
+              placeholder="https://…"
+          /></label>
+        </div>
+        <label class="form-label"
+          >A few details<textarea
+            name="description"
+            rows="3"
+            maxlength="2000"
+            placeholder="What should people know before they decide to go?"
+          ></textarea>
+        </label>
+        <p class="form-error" id="event-create-error" role="alert" hidden></p>
+        <div class="event-create-actions">
+          <button class="button button-quiet close-dialog" type="button">
+            Cancel</button
+          ><button class="button button-coral" type="submit">
+            Publish listing <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <script
+      src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"
+      defer
+    ></script>
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>

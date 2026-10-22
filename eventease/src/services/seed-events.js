@@ -1,0 +1,210 @@
+export const curatedEvents = [
+  {
+    id: "cur-ganesh-art-01",
+    title: "The Lantern Courtyard: Diwali at Dusk",
+    category: "Festival",
+    city: "Jaipur",
+    country: "India",
+    startsAt: "2026-11-01T17:30:00+05:30",
+    venue: "Old City community courtyard",
+    price: "Free community celebration",
+    format: "in-person",
+    description:
+      "A neighbor-led evening of diyas, a shared vegetarian table and local music. A curated sample listing; confirm details with the organizers before travelling.",
+    image: "/assets/diwali-lights.jpg",
+    source: "curated",
+    organizer: "EventEase seasonal guide",
+  },
+  {
+    id: "cur-hack-02",
+    title: "Build Something Kind — Weekend Hack Day",
+    category: "Workshop",
+    city: "Bengaluru",
+    country: "India",
+    startsAt: "2026-11-08T09:00:00+05:30",
+    venue: "Community innovation studio",
+    price: "Sample: ₹499",
+    format: "in-person",
+    description:
+      "A small-team prototyping day focused on useful local ideas. This sample listing is for discovery testing, not a confirmed event.",
+    image: "/assets/concert-lights.jpg",
+    source: "curated",
+    organizer: "EventEase community picks",
+  },
+  {
+    id: "cur-wedding-03",
+    title: "A Garden Table for Two Families",
+    category: "Wedding",
+    city: "Pune",
+    country: "India",
+    startsAt: "2026-11-14T16:00:00+05:30",
+    venue: "Garden venue (planning inspiration)",
+    price: "Plan your own",
+    format: "in-person",
+    description:
+      "An editorial inspiration for a relaxed outdoor gathering: long tables, local flowers and an easy sunset schedule.",
+    image: "/assets/garden-wedding.jpg",
+    source: "curated",
+    organizer: "EventEase planning inspiration",
+  },
+  {
+    id: "cur-music-04",
+    title: "Afterglow: An Open-Air Music Night",
+    category: "Music",
+    city: "Mumbai",
+    country: "India",
+    startsAt: "2026-11-21T19:00:00+05:30",
+    venue: "Seafront stage (sample venue)",
+    price: "Sample: ₹850",
+    format: "in-person",
+    description:
+      "A sample concert listing to explore the site. Dates, pricing and venue are illustrative; there is no live ticket feed configured.",
+    image: "/assets/concert-lights.jpg",
+    source: "curated",
+    organizer: "EventEase community picks",
+  },
+  {
+    id: "cur-christmas-05",
+    title: "A Small Christmas Market",
+    category: "Seasonal",
+    city: "Kochi",
+    country: "India",
+    startsAt: "2026-12-19T15:00:00+05:30",
+    venue: "Heritage lane pop-up",
+    price: "Free entry (sample)",
+    format: "in-person",
+    description:
+      "Handmade gifts, hot snacks and a few acoustic sets. A curated seasonal idea; organizer details are not a live listing.",
+    image: "/assets/garden-wedding.jpg",
+    source: "curated",
+    organizer: "EventEase seasonal guide",
+  },
+  {
+    id: "cur-online-06",
+    title: "Gather Well: Planning Without the Rush",
+    category: "Talk",
+    city: "Online",
+    country: "Online",
+    startsAt: "2026-12-05T17:00:00Z",
+    venue: "Online session (sample)",
+    price: "Free sample session",
+    format: "online",
+    description:
+      "A sample virtual workshop agenda about making a guest list, choosing priorities and leaving breathing room in the schedule.",
+    image: "/assets/diwali-celebration.jpg",
+    source: "curated",
+    organizer: "EventEase planning inspiration",
+  },
+  {
+    id: "cur-newyear-07",
+    title: "The First Light Picnic",
+    category: "Community",
+    city: "Delhi",
+    country: "India",
+    startsAt: "2027-01-01T08:00:00+05:30",
+    venue: "City park (planning inspiration)",
+    price: "Bring a dish",
+    format: "in-person",
+    description:
+      "A gentle new-year gathering with a shared breakfast and a simple no-waste setup.",
+    image: "/assets/garden-wedding.jpg",
+    source: "curated",
+    organizer: "EventEase community picks",
+  },
+  {
+    id: "cur-holi-08",
+    title: "Holi, with Room to Breathe",
+    category: "Festival",
+    city: "Pune",
+    country: "India",
+    startsAt: "2027-03-22T10:00:00+05:30",
+    venue: "Neighborhood garden (sample)",
+    price: "Community-led",
+    format: "in-person",
+    description:
+      "A planning idea for a water-conscious celebration with natural colors, a quiet zone and shared snacks. Festival dates move; verify the local date before making plans.",
+    image: "/assets/diwali-celebration.jpg",
+    source: "curated",
+    dateNote: "Approximate; verify locally",
+    organizer: "EventEase seasonal guide",
+  },
+];
+
+export const festivalGuides = [
+  {
+    name: "Diwali",
+    season: "October–November",
+    context:
+      "A festival of lights observed across regions and traditions, with dates based on lunar calendars.",
+    idea: "A shared meal, diyas placed safely, and a quiet hour for neighbors who prefer a calmer evening.",
+    image: "/assets/diwali-lights.jpg",
+  },
+  {
+    name: "Christmas",
+    season: "December 25",
+    context:
+      "Celebrated in many different ways by communities around the world.",
+    idea: "A small gift exchange, a potluck with labeled ingredients, or a low-key evening of carols.",
+    image: "/assets/garden-wedding.jpg",
+  },
+  {
+    name: "Holi",
+    season: "February–March",
+    context:
+      "A spring celebration with regional customs and dates that shift each year.",
+    idea: "Choose skin-safe colors, provide a water-wise setup and plan a quieter area away from the music.",
+    image: "/assets/diwali-celebration.jpg",
+  },
+  {
+    name: "Eid al-Fitr",
+    season: "Date varies with the Islamic lunar calendar",
+    context:
+      "A celebration marking the end of Ramadan; community dates can differ.",
+    idea: "Plan around local announcements, make space for prayer and include clearly labeled food options.",
+    image: "/assets/garden-wedding.jpg",
+  },
+  {
+    name: "Navratri",
+    season: "September–October",
+    context:
+      "Nine nights with distinct regional expressions, music and devotional practices.",
+    idea: "Check local customs, offer comfortable seating and keep a water station close to the dance floor.",
+    image: "/assets/concert-lights.jpg",
+  },
+  {
+    name: "Durga Puja",
+    season: "September–October",
+    context:
+      "A major festival with community pandals, art and regional traditions.",
+    idea: "Make an accessible route, agree a meeting point and share arrival information in advance.",
+    image: "/assets/diwali-lights.jpg",
+  },
+  {
+    name: "Pongal",
+    season: "Mid-January",
+    context:
+      "A harvest festival observed especially in Tamil Nadu, with regional customs and home traditions.",
+    idea: "Plan a shared meal, learn the local customs from hosts and make space for outdoor community activities.",
+  },
+  {
+    name: "Baisakhi",
+    season: "Mid-April",
+    context:
+      "A spring harvest festival and an important community celebration in Punjab and beyond.",
+    idea: "Check local gurdwara and community announcements, plan a comfortable shared meal and provide clear arrival details.",
+  },
+  {
+    name: "Onam",
+    season: "August–September",
+    context:
+      "A Kerala harvest festival celebrated through several days of food, flowers, art and community gatherings.",
+    idea: "Build around local traditions: a generous vegetarian meal, a flower arrangement and room for family activities.",
+  },
+  {
+    name: "Ganesh Chaturthi",
+    season: "August–September",
+    context:
+      "A major festival with distinct neighbourhood and family observances, especially in Maharashtra.",
+    idea: "Keep access paths clear, choose lower-impact decoration and share neighbourhood noise and collection plans in advance.",
+  },
+];

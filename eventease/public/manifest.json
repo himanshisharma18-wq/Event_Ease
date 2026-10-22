@@ -1,0 +1,18 @@
+{
+  "name": "EventEase — Your Event Universe",
+  "short_name": "EventEase",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f3eb",
+  "theme_color": "#191720",
+  "description": "Find the moments worth gathering for, and plan them beautifully.",
+  "icons": [
+    {
+      "src": "/assets/eventease-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
